@@ -1,0 +1,53 @@
+/* variables setub */
+:root {
+    /* dark mode */
+    --background: #49656e;
+    --dark: #994242;
+    --light: #c2a57f;
+    --accent: #aac5e2;
+    --white: #effaff;
+    --black: #170000;
+}
+
+
+html {
+    min-height: 100%;
+    min-width: 15em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--accent);
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: var(--background);
+    width: 100%;
+    max-width: 100em;
+    margin: 0;
+    display: grid;
+    grid-template-areas:
+        "main"
+        "footer";
+    grid-template-rows: 1fr 2em;
+    grid-template-columns: 1fr;
+}
+
+/* main content */
+#simulator {
+    grid-area: main;
+    margin: 2em;
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--light);
+    color: var(--dark);
+    width: 100%;
+    max-width: 100em;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+}
