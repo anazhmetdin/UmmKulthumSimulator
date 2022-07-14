@@ -50,6 +50,17 @@ body {
     transform: rotate(0deg);
 }
 
+#direction_ring {
+    fill: var(--light);
+    stroke-width: 3%;
+    stroke: var(--accent);
+}
+
+#direction_pointer {
+    fill: var(--dark);
+
+}
+
 footer {
     grid-area: footer;
     background-color: var(--light);
