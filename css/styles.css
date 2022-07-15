@@ -26,20 +26,26 @@ body {
     margin: 0;
     display: grid;
     grid-template-areas:
-        "main"
+        "controller"
+        "playlist"
         "footer";
-    grid-template-rows: 1fr 2em;
+    grid-template-rows: 3fr 7fr 2em;
     grid-template-columns: 1fr;
 }
 
 /* main content */
 #simulator {
+    grid-area: controller;
     position: relative;
     display: flex;
     justify-content: center;
-    grid-area: main;
-    margin: 2em;
+    margin: 2em 2em 0 2em;
     overflow: hidden;
+}
+
+#playlist {    
+    grid-area: playlist;
+    margin: 2em;
 }
 
 /* direction ring */
