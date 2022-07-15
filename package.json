@@ -1,0 +1,23 @@
+{
+  "name": "ummkulthumsimulator",
+  "version": "1.0.0",
+  "description": "Simulating those magical moments of hearing Umm Kulthum from random places",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anazhmetdin/UmmKulthumSimulator.git"
+  },
+  "author": "anazhmetdin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anazhmetdin/UmmKulthumSimulator/issues"
+  },
+  "homepage": "https://github.com/anazhmetdin/UmmKulthumSimulator#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  }
+}
