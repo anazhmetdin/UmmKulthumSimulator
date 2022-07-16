@@ -37,8 +37,12 @@ body {
 #simulator {
     grid-area: controller;
     position: relative;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-areas:
+        "dirText disText perText"
+        "direction distance period";
+    grid-template-rows: 1fr 5fr;
+    grid-template-columns: 1fr 1fr 1fr;
     margin: 2em 2em 0 2em;
     overflow: hidden;
 }
@@ -50,10 +54,12 @@ body {
 
 /* direction ring */
 #direction {
+    grid-area: direction;
     max-width: 100%;
     max-height: 100%;
     position: absolute;
     transform: rotate(0deg);
+    width: fit-content;
 }
 
 #direction_ring {
@@ -65,6 +71,11 @@ body {
 #direction_pointer {
     fill: var(--dark);
 
+}
+
+/* distance */
+#distance {
+    grid-area: distance;
 }
 
 footer {
