@@ -3,6 +3,7 @@ let directionAngle, ringCenterX, ringCenterY;
 let directionElement, pointerElement, directionRect;
 const AMBIENT_RATIO = 0.9
 let audioPlayer, audioContext = null, panNode, gainNode;
+let distanceSlider;
 
 function setDirectionRingCordinates() {
     directionRect = directionElement.getBoundingClientRect();
@@ -41,9 +42,12 @@ function updateDirection(e) {
 }
 
 function modifyAudio() {
-    let audio = setAudioRatio();
-    panNode.pan.value = audio.balance;
-    gainNode.gain.value = audio.gain;
+    let audio;
+    if (audioContext != null) {
+        audio = setAudioRatio();
+        panNode.pan.value = audio.balance;
+        gainNode.gain.value = audio.gain;
+    }
 }
 
 // once the document is loaded
@@ -54,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //#####################################################
     // get ring elments
     directionElement = document.querySelector('#direction');
+    distanceSlider = document.querySelector('#distance');
     pointerElement = directionElement.lastElementChild;
     
     audioPlayer = document.querySelector('#player');

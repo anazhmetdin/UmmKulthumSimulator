@@ -59,7 +59,7 @@ body {
     max-height: 100%;
     position: absolute;
     transform: rotate(0deg);
-    width: fit-content;
+    width: 100%;
 }
 
 #direction_ring {
