@@ -5,6 +5,7 @@ const AMBIENT_RATIO = 0.9
 let audioPlayer, audioContext = null, panNode, gainNode;
 
 function setDirectionRingCordinates() {
+    directionRect = directionElement.getBoundingClientRect();
     ringCenterX = (directionRect.left + directionRect.right) / 2;
     ringCenterY = directionRect.y + (directionRect.height / 2);
 }
@@ -53,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //#####################################################
     // get ring elments
     directionElement = document.querySelector('#direction');
-    directionRect = directionElement.getBoundingClientRect();
     pointerElement = directionElement.lastElementChild;
     
     audioPlayer = document.querySelector('#player');
