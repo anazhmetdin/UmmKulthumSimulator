@@ -36,7 +36,6 @@ body {
 /* main content */
 #simulator {
     grid-area: controller;
-    position: relative;
     display: grid;
     grid-template-areas:
         "dirText disText perText"
@@ -47,19 +46,50 @@ body {
     overflow: hidden;
 }
 
+#simulator>div {
+    padding: 1em;
+}
+
 #playlist {    
     grid-area: playlist;
     margin: 2em;
 }
 
 /* direction ring */
-#direction {
+#direction_range {
     grid-area: direction;
+    display: grid;
+    grid-template-areas: 
+        "left ring right";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+#direction_ring {    
+    grid-area: ring;
+    /* position: relative; */
+}
+
+#direction_range p {
+    height: fit-content;
+    margin: auto;
+    text-align: center;
+}
+
+#left_direction {
+    grid-area: left;
+}
+
+#right_direction {
+    grid-area: right;
+}
+
+#direction {
     max-width: 100%;
     max-height: 100%;
-    position: absolute;
-    transform: rotate(0deg);
+    transform: rotate(90deg);
     width: 100%;
+    min-width: 6em;
 }
 
 #direction_ring {
@@ -70,12 +100,11 @@ body {
 
 #direction_pointer {
     fill: var(--dark);
-
+    stroke-width: 0;
 }
 
 /* distance */
 #distance_range {
-    width: 100%;
     grid-area: distance;
     display: flex;
     align-items: center;
@@ -83,6 +112,7 @@ body {
 
 #distance_range p {
     height: fit-content;
+    text-align: center;
 }
 
 #distance {
