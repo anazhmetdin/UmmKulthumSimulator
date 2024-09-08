@@ -1,40 +1,3 @@
-/* variables setub */
-:root {
-  /* dark mode */
-  --background: #49656e;
-  --dark: #994242;
-  --light: #c2a57f;
-  --accent: #aac5e2;
-  --white: #effaff;
-  --black: #170000;
-}
-
-
-html {
-  min-height: 100%;
-  min-width: 15em;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--accent);
-  display: flex;
-  justify-content: center;
-}
-
-body {
-  background-color: var(--background);
-  width: 100%;
-  max-width: 100em;
-  margin: 0;
-  display: grid;
-  grid-template-areas:
-      "main"
-      "controller"
-      "playlist"
-      "footer";
-  grid-template-rows: 1fr 3fr 7fr 2em;
-  grid-template-columns: 1fr;
-  padding: 1em;
-}
-
 #main {
   grid-area: main;
   text-align: center;
@@ -73,10 +36,6 @@ body {
   grid-template-columns: 1fr 3fr 1fr;
 }
 
-#direction_ring {
-  grid-area: ring;
-  /* position: relative; */
-}
 
 #direction_range p {
   height: fit-content;
@@ -98,12 +57,6 @@ body {
   transform: rotate(90deg);
   width: 100%;
   min-width: 6em;
-}
-
-#direction_ring {
-  fill: var(--light);
-  stroke-width: 3%;
-  stroke: var(--accent);
 }
 
 #direction_pointer {
