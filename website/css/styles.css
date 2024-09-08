@@ -26,11 +26,19 @@ body {
     margin: 0;
     display: grid;
     grid-template-areas:
+        "main"
         "controller"
         "playlist"
         "footer";
-    grid-template-rows: 3fr 7fr 2em;
+    grid-template-rows: 1fr 3fr 7fr 2em;
     grid-template-columns: 1fr;
+    padding: 1em;
+}
+
+#main {
+    grid-area: main;
+    text-align: center;
+    margin-top: 2em;
 }
 
 /* main content */
@@ -38,8 +46,8 @@ body {
     grid-area: controller;
     display: grid;
     grid-template-areas:
-        "dirText disText perText"
-        "direction distance period";
+        "dirText disText sceneTxt"
+        "direction distance scene";
     grid-template-rows: 1fr 5fr;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 2em 2em 0 2em;
@@ -131,4 +139,10 @@ footer {
     justify-content: center;
     box-sizing: border-box;
     padding: 0.5em 1em;
+}
+
+/* scene setup */
+
+#scene {
+    grid-area: scene;
 }
