@@ -1,0 +1,56 @@
+.radio-card {
+  background-color: var(--light);
+  border-radius: 15px;
+  border: 5px solid var(--dark);
+}
+
+.radio-speaker {
+  background: radial-gradient(circle, var(--dark) 10%, var(--black) 90%);
+  height: 5px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 15px var(--black-shadow);
+}
+
+.player-btn {
+  background-color: var(--accent); /* retro button color */
+  color: var(--black);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 1.5rem;
+  border: 2px solid var(--white);
+  box-shadow: 3px 3px 7px var(--black-shadow);
+  transition: filter 0.2s ease-in, box-shadow 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.player-btn.active, .player-btn:active {
+  filter: brightness(0.9);
+  box-shadow: 1px 1px 7px var(--black-shadow);
+  transform: scale(0.97);
+}
+
+.vintage-progress-bar {
+  -webkit-appearance: none;
+  height: 0.5rem;
+  background: var(--white);
+  border-radius: 5px;
+  border: 2px solid #b0b0b0;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.vintage-progress-bar::-webkit-slider-thumb,
+.vintage-progress-bar::-moz-range-thumb,
+.vintage-progress-bar::-ms-thumb {
+  -webkit-appearance: none;
+  background: #8b5e3c;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #5d3a1a;
+}
+
+.vintage-time-info {
+  font-family: 'Courier New', Courier, monospace; /* Vintage font style */
+  font-size: 0.85em;
+  color: #333;
+}
+

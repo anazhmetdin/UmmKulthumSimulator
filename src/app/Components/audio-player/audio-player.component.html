@@ -1,3 +1,40 @@
-<div id="playlist">
-  <audio id="player" src={{audioPath}} controls></audio>
+<div class="card radio-card">
+  <div class="card-body">
+
+    <div *ngFor="let n of [].constructor(groovesCount)" class="w-100 mb-1 mx-auto radio-speaker"></div>
+
+    <audio #audioControl class="d-none" (timeupdate)="updateProgress(audioControl)">
+      <source src="{{audioPath}}">
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="d-flex justify-content-around mt-4">
+      <button class="player-btn" (click)="seekAudio(audioControl, 0)">
+        <i class="bi bi-skip-start-fill"></i>
+      </button>
+      <button class="player-btn" (click)="skipAudio(audioControl, -1)">
+        <i class="bi bi-skip-backward-fill"></i>
+      </button>
+      <button class="player-btn" [class.active]="playing" (click)="playPauseAudio(audioControl)">
+        <i class="bi bi-play-fill"></i>
+      </button>
+      <button class="player-btn" (click)="skipAudio(audioControl, 1)">
+        <i class="bi bi-skip-forward-fill"></i>
+      </button>
+      <button class="player-btn" (click)="seekAudio(audioControl, this.getPlayableDuration(audioControl))">
+        <i class="bi bi-skip-end-fill"></i>
+      </button>
+    </div>
+
+    <div *ngIf="displayProgress"
+    class="progress-container w-100 mt-3 d-flex justify-content-center align-items-center">
+      <input #progressBar type="range" min="0" [(max)]="duration" [(value)]="currentTime"
+        (input)="eventSeekAudio(audioControl, progressBar)"
+        class="flex-grow-1 me-2 vintage-progress-bar" />
+      <div class="vintage-time-info">
+        <span>{{formatTime(currentTime)}}</span> / <span>{{formatTime(duration)}}</span>
+      </div>
+    </div>
+
+  </div>
 </div>

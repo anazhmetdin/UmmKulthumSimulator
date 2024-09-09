@@ -1,9 +1,10 @@
 :root {
   /* dark mode */
   --background: #49656e;
-  --dark: #994242;
+  --dark: #874413;
   --light: #c2a57f;
   --accent: #aac5e2;
   --white: #effaff;
   --black: #170000;
+  --black-shadow: #17000069;
 }
