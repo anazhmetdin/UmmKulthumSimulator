@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'umm-kulthum-simulator';
-  audioPath = "assets/ تهملني - فيروز.mp3";
+  audioPath = "https://stream-161.zeno.fm/zsgrfxg71s8uv";
 }
