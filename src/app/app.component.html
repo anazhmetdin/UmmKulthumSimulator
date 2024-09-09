@@ -1,0 +1,52 @@
+<h1 id="main">محاكاة لصوت أم كلثوم</h1>
+
+<div id="simulator">
+
+  <h2>الاتجاه</h2>
+  <div id="direction_range">
+    <p id="left_direction">شمال</p>
+    <div id="direction_ring">
+      <app-knob></app-knob>
+    </div>
+    <p id="right_direction">يمين</p>
+  </div>
+
+  <div id=distance_range>
+    <p>جنبك هنا</p>
+    <input id="distance" type="range">
+    <p>من بعيد</p>
+  </div>
+
+  <div id="scene">
+    <div>
+      <label for="morningBalacony">الصبح في البلكونة</label>
+      <input id="morningBalacony" type="radio" name="scene" value="morningBalacony">
+    </div>
+    <div>
+      <label for="morningRoad">الصبح على الطريق</label>
+      <input id="morningRoad" type="radio" name="scene" value="morningRoad">
+    </div>
+    <div>
+      <label for="office">الصبح على الطريق</label>
+      <input id="office" type="radio" name="scene" value="office">
+    </div>
+    <div>
+      <label for="asr">العصرية</label>
+      <input id="asr" type="radio" name="scene" value="asr">
+    </div>
+    <div>
+      <label for="nightWalk">بتتمشى بليل</label>
+      <input id="nightWalk" type="radio" name="scene" value="nightWalk">
+    </div>
+    <div>
+      <label for="ahwa">على القهوة بليل</label>
+      <input id="ahwa" type="radio" name="scene" value="ahwa">
+    </div>
+  </div>
+
+</div>
+
+<app-audio-player [displayProgress]="false" [audioPath]="audioPath"></app-audio-player>
+
+<footer>
+</footer>
