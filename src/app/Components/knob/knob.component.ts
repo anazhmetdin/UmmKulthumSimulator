@@ -19,10 +19,11 @@ export class KnobComponent implements AfterViewInit {
   centerY!: number;
 
   ngAfterViewInit(): void {
-    this.GetKnopCenter();   // Y coordinate
+    this.getKnopCenter();   // Y coordinate
   }
 
-  private GetKnopCenter() {
+  @HostListener('window:resize')
+  private getKnopCenter() {
     const rect = this.knobElement.nativeElement.getBoundingClientRect();
     this.centerX = rect.x + rect.width / 2;
     this.centerY = rect.y + rect.height / 2;
@@ -30,7 +31,6 @@ export class KnobComponent implements AfterViewInit {
 
   activate(moueEvent: MouseEvent) {
     this.active = true;
-    this.GetKnopCenter();
     this.AdjustAngle(moueEvent);
   }
 
