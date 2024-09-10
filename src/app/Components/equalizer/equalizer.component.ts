@@ -41,6 +41,10 @@ export class EqualizerComponent implements OnChanges, AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.ConfigureNodes();
+  }
+
+  private ConfigureNodes() {
     if (this.audioContext) {
       const audioConfig = this.getAudioConfig();
       this.panNode.positionX.value = audioConfig.positionX;
@@ -59,5 +63,6 @@ export class EqualizerComponent implements OnChanges, AfterViewInit {
     AUDIO_SOURCE.connect(this.panNode);
     this.panNode.connect(this.gainNode);
     this.gainNode.connect(this.audioContext.destination);
+    this.ConfigureNodes();
   }
 }
