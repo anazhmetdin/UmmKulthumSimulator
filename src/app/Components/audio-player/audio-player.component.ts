@@ -1,15 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-audio-player',
   templateUrl: './audio-player.component.html',
   styleUrls: ['./audio-player.component.css']
 })
-export class AudioPlayerComponent {
+export class AudioPlayerComponent implements AfterViewInit {
+
+  ngAfterViewInit(): void {
+    this.audioControl.emit(this.audioRef.nativeElement)
+  }
+
+  @ViewChild('audioControl') audioRef!: ElementRef<HTMLAudioElement>;
+
+  @Output() audioControl: EventEmitter<HTMLAudioElement> = new EventEmitter();
+
   @Input() audioPath = "";
   @Input() groovesCount = 7;
   @Input() skipping = 7;
   @Input() displayProgress = false;
+
   duration = 0;
   currentTime = 0;
   playing = false;
