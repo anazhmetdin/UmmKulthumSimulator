@@ -3,7 +3,7 @@
 
     <div *ngFor="let n of [].constructor(groovesCount)" class="w-100 mb-1 mx-auto radio-speaker"></div>
 
-    <audio #audioControl class="d-none" (timeupdate)="updateProgress(audioControl)">
+    <audio #audioControl crossorigin="anonymous" class="d-none" (timeupdate)="updateProgress(audioControl)">
       <source src="{{audioPath}}">
       Your browser does not support the audio element.
     </audio>
@@ -26,11 +26,9 @@
       </button>
     </div>
 
-    <div *ngIf="displayProgress"
-    class="progress-container w-100 mt-3 d-flex justify-content-center align-items-center">
+    <div *ngIf="displayProgress" class="progress-container w-100 mt-3 d-flex justify-content-center align-items-center">
       <input #progressBar type="range" min="0" [(max)]="duration" [(value)]="currentTime"
-        (input)="eventSeekAudio(audioControl, progressBar)"
-        class="flex-grow-1 me-2 vintage-progress-bar" />
+        (input)="eventSeekAudio(audioControl, progressBar)" class="flex-grow-1 me-2 vintage-progress-bar" />
       <div class="vintage-time-info">
         <span>{{formatTime(currentTime)}}</span> / <span>{{formatTime(duration)}}</span>
       </div>
