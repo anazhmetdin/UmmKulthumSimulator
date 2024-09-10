@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor( private cdref: ChangeDetectorRef ) {}
+
   title = 'umm-kulthum-simulator';
   audioPath = "https://stream-161.zeno.fm/zsgrfxg71s8uv";
+
+  radioControl: HTMLAudioElement | null = null;
+  radioAngle = 0;
+
+  setRadioControl(audioControl: HTMLAudioElement) {
+    this.radioControl = audioControl;
+    this.cdref.detectChanges();
+  }
+
+  setRadioAngle(angle: number) {
+    this.radioAngle = angle;
+  }
 }
