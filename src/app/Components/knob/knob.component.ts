@@ -1,25 +1,30 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, input, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-knob',
   templateUrl: './knob.component.html',
   styleUrls: ['./knob.component.css']
 })
-export class KnobComponent implements AfterViewInit {
+export class KnobComponent implements AfterViewInit, OnChanges {
 
   @Input()  knobColor = 'var(--light)';
   @Input()  pointerColor = 'var(--dark)';
   @Input()  strokeColor = 'var(--accent)';
 
   active = false;
-  angle = 0;
+  @Input() angle = 0;
+  @Output() angleChanged: EventEmitter<number> = new EventEmitter();
 
   @ViewChild('knob') knobElement!: ElementRef;
   centerX!: number;
   centerY!: number;
 
   ngAfterViewInit(): void {
-    this.getKnopCenter();   // Y coordinate
+    this.getKnopCenter();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.angleChanged.emit(this.angle);
   }
 
   @HostListener('window:resize')
@@ -42,6 +47,7 @@ export class KnobComponent implements AfterViewInit {
 
   private AdjustAngle(moueEvent: MouseEvent) {
     this.angle = 90 + Math.atan2(moueEvent.clientY - this.centerY, moueEvent.clientX - this.centerX) * (180 / Math.PI);;
+    this.angleChanged.emit(this.angle);
   }
 
   @HostListener('document:mouseup', ['$event'])
