@@ -11,7 +11,7 @@ export class EqualizerComponent implements OnChanges, AfterViewInit {
 
   @Input() audioElement!: HTMLAudioElement;
   @Input() angle: number = 0;
-  @Input() distance = 0.5;
+  @Input() distance = 50;
 
   BACK_ABSORPTION = 0.4;
   AMBIENT_RATIO = 0.9
@@ -23,9 +23,9 @@ export class EqualizerComponent implements OnChanges, AfterViewInit {
 
   getAudioConfig() {
     const RAD = this.angle * Math.PI / 180;
-    const positionX = Math.sin(RAD) * this.distance;
+    const positionX = Math.sin(RAD) * this.distanceGain;
     const positionY = 0
-    const positionZ = Math.cos(RAD) * this.distance;
+    const positionZ = Math.cos(RAD) * this.distanceGain;
     let directionGain = this.INITIAL_GAIN;
 
     if (this.angle > 90 && this.angle < 270) {

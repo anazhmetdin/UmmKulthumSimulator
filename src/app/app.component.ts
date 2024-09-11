@@ -14,6 +14,7 @@ export class AppComponent {
 
   radioControl: HTMLAudioElement | null = null;
   radioAngle = 0;
+  radioDistance = 75;
 
   setRadioControl(audioControl: HTMLAudioElement) {
     this.radioControl = audioControl;
@@ -22,5 +23,9 @@ export class AppComponent {
 
   setRadioAngle(angle: number) {
     this.radioAngle = angle;
+  }
+
+  setRadioDistance(distance: number) {
+    this.radioDistance = distance;
   }
 }

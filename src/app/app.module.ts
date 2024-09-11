@@ -6,6 +6,7 @@ import { KnobComponent } from './Components/knob/knob.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AudioPlayerComponent } from './Components/audio-player/audio-player.component';
 import { EqualizerComponent } from "./Components/equalizer/equalizer.component";
+import { SliderComponent } from "./Components/slider/slider.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EqualizerComponent } from "./Components/equalizer/equalizer.component";
   imports: [
     BrowserModule,
     NgbModule,
-    EqualizerComponent
+    EqualizerComponent,
+    SliderComponent
 ],
   providers: [],
   bootstrap: [AppComponent]

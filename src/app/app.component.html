@@ -13,7 +13,7 @@
 
   <div id=distance_range>
     <p>جنبك هنا</p>
-    <input id="distance" type="range">
+    <app-slider (valueChanged)="setRadioDistance($event)" [value]="radioDistance" />
     <p>من بعيد</p>
   </div>
 
@@ -49,6 +49,6 @@
 <app-audio-player (audioControl)="setRadioControl($event)"
 [displayProgress]="false" [audioPath]="audioPath" />
 
-<app-equalizer *ngIf="radioControl" [angle]="radioAngle" [audioElement]="radioControl" />
+<app-equalizer *ngIf="radioControl" [distance]="radioDistance" [angle]="radioAngle" [audioElement]="radioControl" />
 <footer>
 </footer>
