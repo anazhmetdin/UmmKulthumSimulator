@@ -14,7 +14,6 @@ export class EqualizerComponent implements OnChanges, AfterViewInit {
   @Input() distance = 50;
 
   BACK_ABSORPTION = 0.4;
-  AMBIENT_RATIO = 0.9
   INITIAL_GAIN = 1;
 
   audioContext!: AudioContext;
@@ -37,7 +36,9 @@ export class EqualizerComponent implements OnChanges, AfterViewInit {
   }
 
   get distanceGain() {
-    return (100 - this.distance) / 100 + (1 - this.AMBIENT_RATIO);
+    const clampedDistance = Math.max(this.distance, 1);
+    const gain = 1 / (1 + Math.pow(clampedDistance / 30, 2));
+    return Math.min(gain, 1);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
