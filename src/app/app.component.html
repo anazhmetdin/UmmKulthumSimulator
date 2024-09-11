@@ -6,7 +6,7 @@
   <div id="direction_range">
     <p id="left_direction">شمال</p>
     <div id="direction_ring">
-      <app-knob (angleChanged)="setRadioAngle($event)" />
+      <app-knob (angleChanged)="setRadioAngle($event)" [angle]="radioAngle" />
     </div>
     <p id="right_direction">يمين</p>
   </div>
@@ -46,8 +46,7 @@
 
 </div>
 
-<app-audio-player (audioControl)="setRadioControl($event)"
-[displayProgress]="false" [audioPath]="audioPath" />
+<app-audio-player (audioControl)="setRadioControl($event)" [displayProgress]="false" [audioPath]="audioPath" />
 
 <app-equalizer *ngIf="radioControl" [distance]="radioDistance" [angle]="radioAngle" [audioElement]="radioControl" />
 <footer>
