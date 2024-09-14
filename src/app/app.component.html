@@ -49,5 +49,6 @@
 <app-audio-player (audioControl)="setRadioControl($event)" [displayProgress]="false" [audioPath]="audioPath" />
 
 <app-equalizer *ngIf="radioControl" [distance]="radioDistance" [angle]="radioAngle" [audioElement]="radioControl" />
+<app-dj (changeAngle)="setRadioAngle($event)" (changeDistance)="setRadioDistance($event)" [angle]="radioAngle" [distance]="radioDistance" />
 <footer>
 </footer>
