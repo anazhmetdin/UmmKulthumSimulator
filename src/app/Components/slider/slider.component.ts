@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class SliderComponent {
   @Input() value = 50;
+  @Input() step = 0.01;
   @Output() valueChanged: EventEmitter<number> = new EventEmitter();
   emitValue(event: Event) {
     if (event.target instanceof HTMLInputElement) {
